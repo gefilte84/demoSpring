@@ -3,6 +3,8 @@ package com.AppNajim.demo.dao;
 
 import com.AppNajim.demo.model.Person;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 // interface for definisjon av operasjoner som er tillat for de som ønsker å implementere interface
@@ -17,4 +19,12 @@ public interface PersonDao {
         UUID id = UUID.randomUUID();
         return insertPerson(id, person);
     }
+
+    List<Person> selectAllPeople();
+
+    Optional<Person> selectPersonById(UUID id);
+
+    int deletePersonById(UUID id);
+
+    int updatePersonById(UUID id, Person person);
 }
